@@ -7,13 +7,14 @@ interface RedSheetProps {
   visible: boolean;
   opacity: number;
   onOpacityChange?: (opacity: number) => void;
+  resetTrigger?: number;
 }
 
 /**
  * 赤シートオーバーレイコンポーネント
  * ドラッグで移動、右下ハンドルでリサイズ可能
  */
-export default function RedSheet({ visible, opacity, onOpacityChange }: RedSheetProps) {
+export default function RedSheet({ visible, opacity, onOpacityChange, resetTrigger }: RedSheetProps) {
   const sheetRef = useRef<HTMLDivElement>(null);
   const [position, setPosition] = useState({ x: 50, y: 100 });
   const [size, setSize] = useState({ width: 300, height: 200 });
@@ -29,6 +30,20 @@ export default function RedSheet({ visible, opacity, onOpacityChange }: RedSheet
     setSize(settings.sheetSize);
     setSheetColor(settings.sheetColor);
   }, []);
+
+  // リセットトリガーを監視
+  useEffect(() => {
+    if (resetTrigger && resetTrigger > 0) {
+      const defaultPosition = { x: 50, y: 100 };
+      const defaultSize = { width: 300, height: 200 };
+      setPosition(defaultPosition);
+      setSize(defaultSize);
+      saveSettings({
+        sheetPosition: defaultPosition,
+        sheetSize: defaultSize
+      });
+    }
+  }, [resetTrigger]);
 
   // 赤シートと重なる解答要素を検出して透明にする
   const updateOverlappingAnswers = useCallback(() => {

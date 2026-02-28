@@ -22,6 +22,7 @@ export default function StudyPage() {
   const [loading, setLoading] = useState(true);
   const [sheetVisible, setSheetVisible] = useState(true);
   const [opacity, setOpacity] = useState(0.85);
+  const [resetTrigger, setResetTrigger] = useState(0);
 
   useEffect(() => {
     const loadFile = async () => {
@@ -70,6 +71,10 @@ export default function StudyPage() {
   const handleOpacityChange = (newOpacity: number) => {
     setOpacity(newOpacity);
     saveSettings({ sheetOpacity: newOpacity });
+  };
+
+  const handleResetPosition = () => {
+    setResetTrigger(prev => prev + 1);
   };
 
   if (loading) {
@@ -157,6 +162,7 @@ export default function StudyPage() {
         visible={sheetVisible}
         opacity={opacity}
         onOpacityChange={handleOpacityChange}
+        resetTrigger={resetTrigger}
       />
 
       {/* ツールバー */}
@@ -165,6 +171,7 @@ export default function StudyPage() {
         onToggleSheet={() => setSheetVisible(!sheetVisible)}
         opacity={opacity}
         onOpacityChange={handleOpacityChange}
+        onResetPosition={handleResetPosition}
       />
     </div>
   );

@@ -5,6 +5,7 @@ interface ToolbarProps {
   onToggleSheet: () => void;
   opacity: number;
   onOpacityChange: (opacity: number) => void;
+  onResetPosition?: () => void;
 }
 
 /**
@@ -16,6 +17,7 @@ export default function Toolbar({
   onToggleSheet,
   opacity,
   onOpacityChange,
+  onResetPosition,
 }: ToolbarProps) {
   return (
     <div
@@ -53,6 +55,26 @@ export default function Toolbar({
       >
         {sheetVisible ? '赤シートON' : '赤シートOFF'}
       </button>
+
+      {/* 位置リセット */}
+      {sheetVisible && onResetPosition && (
+        <button
+          onClick={onResetPosition}
+          style={{
+            padding: '8px 16px',
+            backgroundColor: '#f0f0f0',
+            color: '#333',
+            border: 'none',
+            borderRadius: '6px',
+            fontWeight: 'bold',
+            cursor: 'pointer',
+            fontSize: '14px',
+            whiteSpace: 'nowrap',
+          }}
+        >
+          リセット
+        </button>
+      )}
 
       {/* 透明度スライダー */}
       {sheetVisible && (
