@@ -84,13 +84,8 @@ export default function StudyPage() {
 
   const handleAskAI = async (question: string, selectedText?: string) => {
     const settings = loadSettings();
-    // 設定画面のAPI Key > 環境変数のAPI Key の優先順位
-    const apiKey = settings.geminiApiKey || process.env.NEXT_PUBLIC_GEMINI_API_KEY;
-
-    if (!apiKey) {
-      alert('Gemini API Keyが設定されていません。設定画面またはenv.localで登録してください。');
-      return;
-    }
+    // 設定画面で登録されたAPI Key（任意）
+    const apiKey = settings.geminiApiKey;
 
     // ユーザーメッセージを追加
     const userMessage = selectedText

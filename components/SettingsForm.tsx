@@ -153,16 +153,20 @@ export default function SettingsForm() {
       {/* Gemini API Key */}
       <div style={{ marginBottom: '32px' }}>
         <h2 style={{ fontSize: '18px', fontWeight: 'bold', marginBottom: '12px' }}>
-          Gemini API Key
+          Gemini API Key（任意）
         </h2>
         <p style={{ fontSize: '14px', color: '#666', marginBottom: '12px' }}>
-          AI機能を使用するには、Google AI StudioでGemini APIキーを取得してください。
+          独自のGemini API Keyを使用する場合は入力してください。
+          <br />
+          未入力の場合はサーバー側のAPI Keyが使用されます。
+          <br />
+          ※ここで入力したAPI Keyはサーバー経由で使用されるため安全です
         </p>
         <input
           type="password"
           value={settings.geminiApiKey || ''}
           onChange={(e) => handleChange('geminiApiKey', e.target.value)}
-          placeholder="AIzaSy..."
+          placeholder="AIzaSy... (任意)"
           style={{
             width: '100%',
             padding: '12px',
