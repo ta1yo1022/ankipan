@@ -150,6 +150,30 @@ export default function SettingsForm() {
         </label>
       </div>
 
+      {/* Gemini API Key */}
+      <div style={{ marginBottom: '32px' }}>
+        <h2 style={{ fontSize: '18px', fontWeight: 'bold', marginBottom: '12px' }}>
+          Gemini API Key
+        </h2>
+        <p style={{ fontSize: '14px', color: '#666', marginBottom: '12px' }}>
+          AI機能を使用するには、Google AI StudioでGemini APIキーを取得してください。
+        </p>
+        <input
+          type="password"
+          value={settings.geminiApiKey || ''}
+          onChange={(e) => handleChange('geminiApiKey', e.target.value)}
+          placeholder="AIzaSy..."
+          style={{
+            width: '100%',
+            padding: '12px',
+            border: '1px solid #ddd',
+            borderRadius: '6px',
+            fontSize: '14px',
+            fontFamily: 'monospace',
+          }}
+        />
+      </div>
+
       {/* データ管理 */}
       <div style={{ marginBottom: '32px' }}>
         <h2 style={{ fontSize: '18px', fontWeight: 'bold', marginBottom: '12px' }}>

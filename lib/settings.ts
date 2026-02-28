@@ -5,6 +5,7 @@ export interface AppSettings {
   sheetOpacity: number; // 0-1
   sheetPosition: { x: number; y: number };
   sheetSize: { width: number; height: number };
+  geminiApiKey?: string;
 }
 
 const DEFAULT_SETTINGS: AppSettings = {

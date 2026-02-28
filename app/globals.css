@@ -82,3 +82,92 @@ answer {
     font-size: 15px;
   }
 }
+
+/* チャットメッセージのMarkdownスタイル */
+.chat-message p {
+  margin: 0 0 8px 0;
+}
+
+.chat-message p:last-child {
+  margin-bottom: 0;
+}
+
+.chat-message strong {
+  font-weight: bold;
+}
+
+.chat-message em {
+  font-style: italic;
+}
+
+.chat-message ul,
+.chat-message ol {
+  margin: 8px 0;
+  padding-left: 20px;
+}
+
+.chat-message li {
+  margin: 4px 0;
+}
+
+.chat-message code {
+  background-color: rgba(0, 0, 0, 0.05);
+  padding: 2px 4px;
+  border-radius: 3px;
+  font-family: monospace;
+  font-size: 0.9em;
+}
+
+.chat-message pre {
+  background-color: rgba(0, 0, 0, 0.05);
+  padding: 8px;
+  border-radius: 4px;
+  overflow-x: auto;
+  margin: 8px 0;
+}
+
+.chat-message pre code {
+  background-color: transparent;
+  padding: 0;
+}
+
+.chat-message h1,
+.chat-message h2,
+.chat-message h3 {
+  font-weight: bold;
+  margin: 12px 0 8px 0;
+}
+
+.chat-message h1 {
+  font-size: 1.2em;
+}
+
+.chat-message h2 {
+  font-size: 1.1em;
+}
+
+.chat-message h3 {
+  font-size: 1.05em;
+}
+
+.chat-message blockquote {
+  border-left: 3px solid rgba(0, 0, 0, 0.2);
+  padding-left: 12px;
+  margin: 8px 0;
+  color: rgba(0, 0, 0, 0.7);
+}
+
+/* ユーザーメッセージ（赤背景）用のスタイル */
+.chat-message-user code {
+  background-color: rgba(255, 255, 255, 0.2);
+  color: white;
+}
+
+.chat-message-user pre {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.chat-message-user blockquote {
+  border-left-color: rgba(255, 255, 255, 0.5);
+  color: rgba(255, 255, 255, 0.95);
+}
