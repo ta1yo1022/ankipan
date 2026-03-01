@@ -19,7 +19,7 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    const model = 'gemini-1.5-pro-latest';
+    const model = 'gemini-3.1-pro-preview';
 
     // Gemini APIのフォーマットに変換
     const contents = messages.map((msg: ChatMessage) => ({
