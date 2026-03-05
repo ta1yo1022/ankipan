@@ -171,3 +171,118 @@ answer {
   border-left-color: rgba(255, 255, 255, 0.5);
   color: rgba(255, 255, 255, 0.95);
 }
+
+/* 印刷用スタイル */
+@media print {
+  @page {
+    size: A4;
+    margin: 20mm;
+  }
+
+  /* ヘッダー・フッターのURL、ページ番号、日付を非表示 */
+  @page {
+    margin-top: 20mm;
+    margin-bottom: 20mm;
+    margin-left: 20mm;
+    margin-right: 20mm;
+  }
+
+  html {
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  /* 印刷時に非表示にする要素 */
+  .toolbar,
+  header,
+  .no-print {
+    display: none !important;
+  }
+
+  /* 赤シートを印刷時に非表示 */
+  [style*="position: fixed"][style*="pointer-events: none"] {
+    display: none !important;
+  }
+
+  /* チャットパネルを印刷時に非表示 */
+  [style*="position: fixed"][style*="right: 0"][style*="bottom: 0"] {
+    display: none !important;
+  }
+
+  /* body背景を白に、全コンテンツを表示 */
+  html, body {
+    background: white !important;
+    height: auto !important;
+    overflow: visible !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  /* メインコンテナも全て表示 */
+  body > div {
+    min-height: auto !important;
+    height: auto !important;
+    overflow: visible !important;
+  }
+
+  /* study-viewを印刷に最適化 */
+  .study-view {
+    padding: 0 !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    box-shadow: none !important;
+    background-color: white !important;
+    min-height: auto !important;
+    height: auto !important;
+    overflow: visible !important;
+  }
+
+  /* 改ページの制御 */
+  h1, h2, h3 {
+    page-break-after: avoid;
+    break-after: avoid-page;
+  }
+
+  p, li {
+    orphans: 3;
+    widows: 3;
+  }
+
+  /* 解答テキストを印刷時もオレンジ色で表示 */
+  .answer,
+  answer {
+    color: #E8740C !important;
+    font-weight: bold;
+  }
+
+  /* spanタグの色も保持 */
+  span[style*="#E8740C"],
+  span[style*="#e8740c"] {
+    color: #E8740C !important;
+    font-weight: bold;
+  }
+
+  /* リンクの色を黒に */
+  a {
+    color: #000 !important;
+    text-decoration: underline;
+  }
+
+  /* 印刷時のフォントサイズ調整 */
+  .study-view {
+    font-size: 11pt !important;
+    line-height: 1.6 !important;
+  }
+
+  .study-view h1 {
+    font-size: 18pt !important;
+  }
+
+  .study-view h2 {
+    font-size: 16pt !important;
+  }
+
+  .study-view h3 {
+    font-size: 14pt !important;
+  }
+}

@@ -59,6 +59,7 @@ export default function TextSelectionPopup({ onAskAI }: TextSelectionPopupProps)
 
   return (
     <div
+      className="no-print"
       style={{
         position: 'fixed',
         left: `${popupPosition.x}px`,

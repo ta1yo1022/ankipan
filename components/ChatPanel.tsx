@@ -43,6 +43,7 @@ export default function ChatPanel({ messages, onSendMessage, isLoading }: ChatPa
 
   return (
     <div
+      className="no-print"
       style={{
         position: 'fixed',
         right: '16px',

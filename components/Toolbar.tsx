@@ -1,5 +1,7 @@
 'use client';
 
+import { Printer } from 'lucide-react';
+
 interface ToolbarProps {
   sheetVisible: boolean;
   onToggleSheet: () => void;
@@ -10,7 +12,7 @@ interface ToolbarProps {
 
 /**
  * 学習画面のツールバー
- * 赤シートのON/OFF、透明度調整
+ * 赤シートのON/OFF、透明度調整、印刷
  */
 export default function Toolbar({
   sheetVisible,
@@ -19,6 +21,10 @@ export default function Toolbar({
   onOpacityChange,
   onResetPosition,
 }: ToolbarProps) {
+  const handlePrint = () => {
+    window.print();
+  };
+
   return (
     <div
       className="toolbar"
@@ -54,6 +60,29 @@ export default function Toolbar({
         }}
       >
         {sheetVisible ? '赤シートON' : '赤シートOFF'}
+      </button>
+
+      {/* 印刷ボタン */}
+      <button
+        onClick={handlePrint}
+        style={{
+          padding: '8px 16px',
+          backgroundColor: '#f0f0f0',
+          color: '#333',
+          border: 'none',
+          borderRadius: '6px',
+          fontWeight: 'bold',
+          cursor: 'pointer',
+          fontSize: '14px',
+          whiteSpace: 'nowrap',
+          display: 'flex',
+          alignItems: 'center',
+          gap: '6px',
+        }}
+        title="印刷"
+      >
+        <Printer size={16} />
+        印刷
       </button>
 
       {/* 位置リセット */}

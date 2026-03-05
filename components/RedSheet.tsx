@@ -161,7 +161,7 @@ export default function RedSheet({ visible, opacity, onOpacityChange, resetTrigg
   return (
     <div
       ref={sheetRef}
-      className="red-sheet"
+      className="red-sheet no-print"
       style={{
         position: 'fixed',
         left: `${position.x}px`,
